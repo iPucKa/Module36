@@ -15,4 +15,7 @@ public static class UnityLayers
 	public static readonly int LayerUI = UnityEngine.LayerMask.NameToLayer("UI");
 	public static readonly int LayerMaskUI = 1 << LayerUI;
 
+	public static readonly int LayerCharacters = UnityEngine.LayerMask.NameToLayer("Characters");
+	public static readonly int LayerMaskCharacters = 1 << LayerCharacters;
+
 }

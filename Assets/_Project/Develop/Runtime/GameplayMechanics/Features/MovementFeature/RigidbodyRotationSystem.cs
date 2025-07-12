@@ -1,5 +1,6 @@
 ﻿using Assets._Project.Develop.Runtime.GameplayMechanics.EntitiesCore;
 using Assets._Project.Develop.Runtime.GameplayMechanics.EntitiesCore.Systems;
+using Assets._Project.Develop.Runtime.Utilities.Conditions;
 using Assets._Project.Develop.Runtime.Utilities.Reactive;
 using UnityEngine;
 
@@ -9,15 +10,22 @@ namespace Assets._Project.Develop.Runtime.GameplayMechanics.Features.MovementFea
 	{
 		private const float _deadZone = 0.1f;
 
-		private ReactiveVariable<Vector3> _rotationDirection;
+		private ReactiveVariable<Vector3> _direction;
 		private ReactiveVariable<float> _rotationSpeed;
 		private Rigidbody _rigidbody;
 
+		private ICompositCondition _canRotate;
+
 		public void OnInit(Entity entity)
 		{
-			_rotationDirection = entity.RotationDirection;
+			_direction = entity.RotationDirection;
 			_rotationSpeed = entity.RotationSpeed;
 			_rigidbody = entity.Rigidbody;
+
+			_canRotate = entity.CanRotate;
+
+			if (_direction.Value != Vector3.zero)
+				_rigidbody.transform.rotation = Quaternion.LookRotation(_direction.Value.normalized);
 		}
 
 		public void OnUpdate(float deltaTime)
@@ -27,10 +35,13 @@ namespace Assets._Project.Develop.Runtime.GameplayMechanics.Features.MovementFea
 
 		private void ProcessRotateTo(float deltaTime)
 		{
-			if (_rotationDirection.Value.magnitude <= _deadZone)
+			if (_canRotate.Evaluate() == false)
 				return;
 
-			Vector3 direction = _rotationDirection.Value.normalized;
+			if (_direction.Value == Vector3.zero)
+				return;
+
+			Vector3 direction = _direction.Value.normalized;
 			Quaternion lookRotation = Quaternion.LookRotation(direction);
 			float step = _rotationSpeed.Value * deltaTime;
 

@@ -1,4 +1,5 @@
 ﻿using Assets._Project.Develop.Runtime.GameplayMechanics.EntitiesCore;
+using Assets._Project.Develop.Runtime.Utilities.Conditions;
 using Assets._Project.Develop.Runtime.Utilities.Reactive;
 using UnityEngine;
 
@@ -12,5 +13,10 @@ namespace Assets._Project.Develop.Runtime.GameplayMechanics.Features.MovementFea
 	public class RotationDirection : IEntityComponent
 	{
 		public ReactiveVariable<Vector3> Value;
+	}
+
+	public class CanRotate : IEntityComponent
+	{
+		public ICompositCondition Value;
 	}
 }

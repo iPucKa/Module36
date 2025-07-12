@@ -9,8 +9,8 @@ namespace Assets._Project.Develop.Runtime.GameplayMechanics
 		private DIContainer _container;
 		private EntitiesFactory _entitiesFactory;
 
-		private Entity _entityRB;
-		private Entity _entityCC;
+		private Entity _entity;
+		//private Entity _entityCC;
 
 		private bool _isRunning;
 
@@ -22,8 +22,10 @@ namespace Assets._Project.Develop.Runtime.GameplayMechanics
 
 		public void Run()
 		{
-			_entityRB = _entitiesFactory.CreateHeroRBEntity(Vector3.zero);
-			_entityCC = _entitiesFactory.CreateHeroCCEntity(new Vector3(0,0,3));
+			//_entity = _entitiesFactory.CreateHeroRBEntity(Vector3.zero);
+			//_entityCC = _entitiesFactory.CreateHeroCCEntity(new Vector3(0,0,3));
+
+			_entity = _entitiesFactory.CreateTeleportedEntity(Vector3.zero);
 
 			_isRunning = true;
 		}
@@ -33,13 +35,19 @@ namespace Assets._Project.Develop.Runtime.GameplayMechanics
 			if (_isRunning == false)
 				return;
 
-			Vector3 input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+			if (Input.GetKeyDown(KeyCode.Space))
+			{
+				_entity.TeleportingRequest.Invoke();
+				//Debug.Log("Текущий уровень здоровья: " + _entity.CurrentHealth.Value.ToString());
+			}
 
-			_entityRB.MoveDirection.Value = input;
-			_entityRB.RotationDirection.Value = input;
+			//Vector3 input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
 
-			_entityCC.MoveDirection.Value = input;
-			_entityCC.RotationDirection.Value = input;
+			//_entity.MoveDirection.Value = input;
+			//_entity.RotationDirection.Value = input;
+
+			//_entityCC.MoveDirection.Value = input;
+			//_entityCC.RotationDirection.Value = input;
 		}
 	}
 }

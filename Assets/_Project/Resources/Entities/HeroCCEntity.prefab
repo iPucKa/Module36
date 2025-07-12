@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 5479741652065401777}
   - component: {fileID: 405231991633326917}
   - component: {fileID: 1380453222350283535}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HeroCCEntity
   m_TagString: Untagged
   m_Icon: {fileID: 0}

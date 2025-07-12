@@ -22,6 +22,7 @@ namespace Assets._Project.Develop.Runtime.Utilities.ConfigsManagement
 			{typeof(CurrencyIconsConfig), "Configs/Wallet/CurrencyIconsConfig"},
 			{typeof(ProgressIconsConfig), "Configs/Gameplay/ProgressIconsConfig"},
 			{typeof(GameplayMechanicsConfig), "Configs/GameplayMechanics/GameplayMechanicsConfig"},
+			{typeof(TeleportedEntityConfig), "Configs/GameplayMechanics/TeleportedEntityConfig"},
 		};
 
 		public ResourcesConfigsLoader(ResourcesAssetsLoader resources)

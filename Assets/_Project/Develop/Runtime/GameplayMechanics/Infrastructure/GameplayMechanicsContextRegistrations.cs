@@ -15,6 +15,13 @@ namespace Assets._Project.Develop.Runtime.GameplayMechanics.Infrastructure
 			container.RegisterAsSingle(CreateEntitiesFactory);
 			container.RegisterAsSingle(CreateEntitiesLifeContext);
 			container.RegisterAsSingle(CreateMonoEntitiesFactory).NonLazy();
+			container.RegisterAsSingle(CreateCollidersRegistryService);
+		}
+
+		//Способ регистрации связи сущности и коллайдера
+		private static CollidersRegistryService CreateCollidersRegistryService(DIContainer c)
+		{
+			return new CollidersRegistryService();
 		}
 
 		//Способ создания фабрики прослоек между сущностью и Unity
@@ -22,7 +29,8 @@ namespace Assets._Project.Develop.Runtime.GameplayMechanics.Infrastructure
 		{
 			return new MonoEntitiesFactory(
 				c.Resolve<ResourcesAssetsLoader>(),
-				c.Resolve<EntitiesLifeContext>());
+				c.Resolve<EntitiesLifeContext>(),
+				c.Resolve<CollidersRegistryService>());
 		}
 
 		//Способ создания Сервиса жизненного цикла сущностей
