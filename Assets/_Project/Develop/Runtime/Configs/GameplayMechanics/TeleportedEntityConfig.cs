@@ -8,6 +8,7 @@ namespace Assets._Project.Develop.Runtime.Configs.GameplayMechanics
 		[field: SerializeField] public float MaxHealth { get; private set; }
 		[field: SerializeField] public float MaxEnergy { get; private set; }
 		[field: SerializeField] public float TeleportRadius { get; private set; }
+		[field: SerializeField] public float TeleportCooldown{ get; private set; }
 		[field: SerializeField] public float EnergyValueForTeleport { get; private set; }
 		[field: SerializeField] public float EnergyRecoveryTime { get; private set; }
 		[field: SerializeField] public float DamageRadius { get; private set; }

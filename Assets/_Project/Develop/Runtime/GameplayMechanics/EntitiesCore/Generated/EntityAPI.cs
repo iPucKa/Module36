@@ -67,6 +67,48 @@ namespace Assets._Project.Develop.Runtime.GameplayMechanics.EntitiesCore
 		return AddComponent(new Assets._Project.Develop.Runtime.GameplayMechanics.Features.TeleportationFeature.TeleportingEvent() {Value = value}); 
 		}
 
+		public Assets._Project.Develop.Runtime.GameplayMechanics.Features.TeleportationFeature.TeleportCooldownInitialTime TeleportCooldownInitialTimeC => GetComponent<Assets._Project.Develop.Runtime.GameplayMechanics.Features.TeleportationFeature.TeleportCooldownInitialTime>();
+
+		public Assets._Project.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single> TeleportCooldownInitialTime => TeleportCooldownInitialTimeC.Value;
+
+		public Assets._Project.Develop.Runtime.GameplayMechanics.EntitiesCore.Entity AddTeleportCooldownInitialTime()
+		{
+		return AddComponent(new Assets._Project.Develop.Runtime.GameplayMechanics.Features.TeleportationFeature.TeleportCooldownInitialTime() {Value = new Assets._Project.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single>() }); 
+		}
+
+		public Assets._Project.Develop.Runtime.GameplayMechanics.EntitiesCore.Entity AddTeleportCooldownInitialTime(Assets._Project.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single> value)
+		{
+		return AddComponent(new Assets._Project.Develop.Runtime.GameplayMechanics.Features.TeleportationFeature.TeleportCooldownInitialTime() {Value = value}); 
+		}
+
+		public Assets._Project.Develop.Runtime.GameplayMechanics.Features.TeleportationFeature.TeleportCooldownCurrentTime TeleportCooldownCurrentTimeC => GetComponent<Assets._Project.Develop.Runtime.GameplayMechanics.Features.TeleportationFeature.TeleportCooldownCurrentTime>();
+
+		public Assets._Project.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single> TeleportCooldownCurrentTime => TeleportCooldownCurrentTimeC.Value;
+
+		public Assets._Project.Develop.Runtime.GameplayMechanics.EntitiesCore.Entity AddTeleportCooldownCurrentTime()
+		{
+		return AddComponent(new Assets._Project.Develop.Runtime.GameplayMechanics.Features.TeleportationFeature.TeleportCooldownCurrentTime() {Value = new Assets._Project.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single>() }); 
+		}
+
+		public Assets._Project.Develop.Runtime.GameplayMechanics.EntitiesCore.Entity AddTeleportCooldownCurrentTime(Assets._Project.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Single> value)
+		{
+		return AddComponent(new Assets._Project.Develop.Runtime.GameplayMechanics.Features.TeleportationFeature.TeleportCooldownCurrentTime() {Value = value}); 
+		}
+
+		public Assets._Project.Develop.Runtime.GameplayMechanics.Features.TeleportationFeature.InTeleportCooldown InTeleportCooldownC => GetComponent<Assets._Project.Develop.Runtime.GameplayMechanics.Features.TeleportationFeature.InTeleportCooldown>();
+
+		public Assets._Project.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Boolean> InTeleportCooldown => InTeleportCooldownC.Value;
+
+		public Assets._Project.Develop.Runtime.GameplayMechanics.EntitiesCore.Entity AddInTeleportCooldown()
+		{
+		return AddComponent(new Assets._Project.Develop.Runtime.GameplayMechanics.Features.TeleportationFeature.InTeleportCooldown() {Value = new Assets._Project.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Boolean>() }); 
+		}
+
+		public Assets._Project.Develop.Runtime.GameplayMechanics.EntitiesCore.Entity AddInTeleportCooldown(Assets._Project.Develop.Runtime.Utilities.Reactive.ReactiveVariable<System.Boolean> value)
+		{
+		return AddComponent(new Assets._Project.Develop.Runtime.GameplayMechanics.Features.TeleportationFeature.InTeleportCooldown() {Value = value}); 
+		}
+
 		public Assets._Project.Develop.Runtime.GameplayMechanics.Features.Sensors.BodyCollider BodyColliderC => GetComponent<Assets._Project.Develop.Runtime.GameplayMechanics.Features.Sensors.BodyCollider>();
 
 		public UnityEngine.CapsuleCollider BodyCollider => BodyColliderC.Value;

@@ -15,6 +15,7 @@ MonoBehaviour:
   <MaxHealth>k__BackingField: 100
   <MaxEnergy>k__BackingField: 100
   <TeleportRadius>k__BackingField: 5
+  <TeleportCooldown>k__BackingField: 2
   <EnergyValueForTeleport>k__BackingField: 20
   <EnergyRecoveryTime>k__BackingField: 3
   <DamageRadius>k__BackingField: 5

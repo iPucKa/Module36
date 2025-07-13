@@ -112,6 +112,9 @@ namespace Assets._Project.Develop.Runtime.GameplayMechanics.EntitiesCore
 
 			entity
 				.AddTeleportRadius(new ReactiveVariable<float>(config.TeleportRadius))
+				.AddTeleportCooldownInitialTime(new ReactiveVariable<float>(config.TeleportCooldown))
+				.AddTeleportCooldownCurrentTime()
+				.AddInTeleportCooldown()
 				.AddTeleportingRequest()
 				.AddTeleportingEvent()
 				.AddMaxHealth(new ReactiveVariable<float>(config.MaxHealth))
@@ -145,6 +148,7 @@ namespace Assets._Project.Develop.Runtime.GameplayMechanics.EntitiesCore
 
 			ICompositCondition canTeleport = new CompositCondition()
 				.Add(new FuncCondition(() => entity.IsDead.Value == false))
+				.Add(new FuncCondition(() => entity.InTeleportCooldown.Value == false))
 				.Add(new FuncCondition(() => entity.CurrentEnergy.Value >= entity.TeleportByEnergyValue.Value));
 
 			ICompositCondition canRestoreEnergy = new CompositCondition()
@@ -176,6 +180,7 @@ namespace Assets._Project.Develop.Runtime.GameplayMechanics.EntitiesCore
 
 			entity
 				.AddSystem(new RigidbodyTeleportingSystem())
+				.AddSystem(new TeleportCooldownTimerSystem())
 				.AddSystem(new SpendEnergySystem())
 				.AddSystem(new RestoreEnergySystem())				
 				.AddSystem(new BodyContactsDetectingSystem())
