@@ -10,7 +10,6 @@ namespace Assets._Project.Develop.Runtime.GameplayMechanics
 		private EntitiesFactory _entitiesFactory;
 
 		private Entity _entityHero;
-		private Entity _entityGhost;
 
 		private bool _isRunning;
 
@@ -22,7 +21,9 @@ namespace Assets._Project.Develop.Runtime.GameplayMechanics
 
 		public void Run()
 		{
-			_entityGhost = _entitiesFactory.CreateGhost(Vector3.zero + Vector3.forward * 3);
+			Entity entityGhost1 = _entitiesFactory.CreateGhost(Vector3.zero + Vector3.forward * 3);
+			Entity entityGhost2 = _entitiesFactory.CreateGhost(Vector3.zero - Vector3.forward * 3);
+			Entity entityGhost3 = _entitiesFactory.CreateGhost(Vector3.zero + Vector3.right * 3);
 			//_entityCC = _entitiesFactory.CreateHeroCCEntity(new Vector3(0,0,3));
 
 			_entityHero = _entitiesFactory.CreateHero(Vector3.zero);
