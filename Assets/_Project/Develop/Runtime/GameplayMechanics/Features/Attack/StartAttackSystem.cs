@@ -12,6 +12,7 @@ namespace Assets._Project.Develop.Runtime.GameplayMechanics.Features.Attack
 		private ReactiveEvent _startAttackRequest;
 		private ReactiveEvent _startAttackEvent;
 		private ReactiveVariable<bool> _inAttackProcess;
+
 		private ICompositCondition _canStartAttack;
 
 		private IDisposable _attackRequestDispose;
