@@ -46,7 +46,7 @@ namespace Assets._Project.Develop.Runtime.GameplayMechanics.Features.EnergyCycle
 			{
 				_currentEnergy.Value = MathF.Min(_currentEnergy.Value + _energyToRestore, _maxEnergy.Value);
 
-				Debug.Log("Восттановил энергию, текущее значение: " + _currentEnergy.Value);
+				Debug.Log("Восстанавливаю энергию, текущее значение: " + _currentEnergy.Value);
 
 				_curentTime.Value = _initialTime.Value;
 			}

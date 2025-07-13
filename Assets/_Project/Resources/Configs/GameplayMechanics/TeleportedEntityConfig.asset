@@ -21,7 +21,7 @@ MonoBehaviour:
   <DamageRadius>k__BackingField: 5
   <Damage>k__BackingField: 50
   <AttackDelayTime>k__BackingField: 1
-  <DeathProcessInitialTime>k__BackingField: 2
+  <DeathProcessInitialTime>k__BackingField: 0.5
   <LayerMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
