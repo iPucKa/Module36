@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Assets._Project.Develop.Runtime.GameplayMechanics.Features.EnergyCycle
 {
-	public class SpendEnergySystem : IInitializableSystem, IDisposableSystem
+	public class SpendEnergyOnTeleportSystem : IInitializableSystem, IDisposableSystem
 	{
 		private ReactiveEvent _teleportEvent;
 		private ReactiveVariable<float> _energy;

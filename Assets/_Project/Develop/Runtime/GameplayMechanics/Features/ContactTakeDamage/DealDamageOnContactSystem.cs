@@ -1,6 +1,6 @@
 ﻿using Assets._Project.Develop.Runtime.GameplayMechanics.EntitiesCore;
 using Assets._Project.Develop.Runtime.GameplayMechanics.EntitiesCore.Systems;
-using Assets._Project.Develop.Runtime.GameplayMechanics.Features.ApplyDamage;
+using Assets._Project.Develop.Runtime.GameplayMechanics.Features.Attack;
 using Assets._Project.Develop.Runtime.Utilities;
 using Assets._Project.Develop.Runtime.Utilities.Reactive;
 using System.Collections.Generic;
@@ -33,8 +33,7 @@ namespace Assets._Project.Develop.Runtime.GameplayMechanics.Features.ContactTake
 				{
 					_processedEntities.Add(contactEntity);
 
-					if (contactEntity.HasComponent<TakeDamageRequest>())
-						contactEntity.TakeDamageRequest.Invoke(_damage.Value);
+					DamageHandler.ApplyDamage(contactEntity, _damage.Value);
 				}
 			}
 

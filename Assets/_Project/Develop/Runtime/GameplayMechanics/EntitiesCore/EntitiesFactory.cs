@@ -181,7 +181,7 @@ namespace Assets._Project.Develop.Runtime.GameplayMechanics.EntitiesCore
 			entity
 				.AddSystem(new RigidbodyTeleportingSystem())
 				.AddSystem(new TeleportCooldownTimerSystem())
-				.AddSystem(new SpendEnergySystem())
+				.AddSystem(new SpendEnergyOnTeleportSystem())
 				.AddSystem(new RestoreEnergySystem())				
 				.AddSystem(new BodyContactsDetectingSystem())
 				.AddSystem(new BodyContactsEntitiesFilterSystem(_collidersRegistryService))

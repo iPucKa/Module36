@@ -33,15 +33,13 @@ namespace Assets._Project.Develop.Runtime.GameplayMechanics.Features.Attack.Area
 
 		private void OnAttackDelayEnd()
 		{
-			Debug.Log("Ищу кому бы нанести дамаг, число контактов: " + _contacts.Count);
-
-			//обработка первого касания
+			//Debug.Log("Ищу кому бы нанести дамаг, число контактов: " + _contacts.Count);
+			
 			for (int i = 0; i < _contacts.Count; i++)
 			{
 				Entity contactEntity = _contacts.Items[i];
 
-				if (contactEntity.HasComponent<TakeDamageRequest>())
-					contactEntity.TakeDamageRequest.Invoke(_damage.Value);				
+				DamageHandler.ApplyDamage(contactEntity, _damage.Value);								
 			}
 		}
 	}
